@@ -375,9 +375,23 @@ bot.on('polling_error', (error) => {
   console.error('❌ Polling error:', error);
 });
 
+// Simple HTTP server for Render (needs a port)
+const http = require('http');
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Yomi bot is running! 🤖');
+});
+
+server.listen(PORT, () => {
+  console.log(`🌐 Server listening on port ${PORT} (for Render compatibility)`);
+});
+
 // Graceful shutdown
 process.on('SIGINT', () => {
   console.log('\n👋 Shutting down Yomi bot...');
   bot.stopPolling();
+  server.close();
   process.exit(0);
 });
