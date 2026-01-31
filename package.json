@@ -1,0 +1,23 @@
+{
+  "name": "yomibot",
+  "version": "1.0.0",
+  "description": "A Telegram bot that responds when you're unavailable",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "parse-chat": "node parseChat.js"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "yomi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "dotenv": "^16.3.1",
+    "@google/generative-ai": "^0.21.0"
+  }
+}
